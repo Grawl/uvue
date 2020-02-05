@@ -1,21 +1,9 @@
 import jwt from 'jsonwebtoken'
-import faker from 'faker'
+import { generateRows } from './mock'
 // Return current token
 const getToken = req => {
 	const { authorization } = req.headers
 	return authorization ? authorization.replace(/^Bearer\s/, '') : null
-}
-// Generate fake data
-const generateRows = count => {
-	const rows = []
-	for (let i = 0; i < count; i++) {
-		rows.push({
-			title: faker.lorem.sentence(),
-			text: faker.lorem.paragraph(),
-			picture: `https://placeimg.com/256/192/tech?r=${Math.random()}`,
-		})
-	}
-	return rows
 }
 export default server => {
 	const jwtSecret = 'shhhhh'
