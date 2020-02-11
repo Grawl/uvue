@@ -24,6 +24,15 @@
 				+link('Source code', 'https://github.com/Grawl/uvue')
 				+link('Documentation', 'https://universal-vue.github.io/docs')
 				+link('Github repo', 'https://github.com/universal-vue/uvue')
+		h2 External server mock
+		section
+			article(v-for='({ author, title, published, body, image }, index) in news' :key='index')
+				img(:src='image')
+				h3 {{ title }}
+					br
+					small #[strong {{ published }}] - #[em {{ author }}]
+				p(v-html='body')
+		h2 Local server mock
 		RowsList(:rows='rows')
 </template>
 <script>
@@ -38,8 +47,10 @@ export default {
 	},
 	async asyncData({ $http }) {
 		const { data: rows } = await $http.get('/api/public')
+		const { data: news } = await $http.get('/api/external')
 		return {
 			rows,
+			news,
 		}
 	},
 }

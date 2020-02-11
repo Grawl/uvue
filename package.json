@@ -2,13 +2,18 @@
 	"name": "uvue",
 	"version": "0.1.0",
 	"private": true,
+	"engines": {
+		"node": ">=10 <13",
+		"yarn": "^1"
+	},
 	"scripts": {
 		"build": "vue-cli-service ssr:build",
 		"start": "vue-cli-service ssr:start",
 		"dev": "vue-cli-service ssr:serve",
 		"static": "vue-cli-service ssr:static",
 		"fix": "vue-cli-service ssr:fix",
-		"lint": "vue-cli-service lint"
+		"lint": "vue-cli-service lint",
+		"mock": "node mock/index.js"
 	},
 	"gitHooks": {
 		"pre-commit": "lint-staged"
@@ -27,6 +32,7 @@
 		"body-parser": "^1.18.3",
 		"faker": "^4.1.0",
 		"fastify": "^1.14.1",
+		"isomorphic-fetch": "^2.2.1",
 		"js-cookie": "^2.2.0",
 		"jsonwebtoken": "^8.5.0",
 		"register-service-worker": "^1.6.2",
@@ -47,9 +53,12 @@
 		"@vue/cli-service": "^3.4.1",
 		"@vue/eslint-config-standard": "^4.0.0",
 		"babel-eslint": "^10.0.1",
+		"casual": "^1.6.2",
+		"dotenv-safe": "^8.2.0",
 		"eslint": "^5.14.1",
 		"eslint-plugin-vue": "^5.2.2",
 		"html-loader": "^0.5.5",
+		"json-server": "^0.15.1",
 		"lint-staged": "^10.0.7",
 		"pug": "^2.0.4",
 		"pug-plain-loader": "^1.0.0",

@@ -1,5 +1,7 @@
 import jwt from 'jsonwebtoken'
+import ApiClient from './external-api'
 import { generateRows } from './mock'
+const externalAPI = new ApiClient()
 // Return current token
 const getToken = req => {
 	const { authorization } = req.headers
@@ -51,6 +53,13 @@ export default server => {
 	 */
 	app.get('/api/public', async(req, res) => {
 		return res.send(generateRows(3))
+	})
+	/**
+	 * Data route: return external API public data
+	 */
+	app.get('/api/external', async(req, res) => {
+		const data = await externalAPI.getNews()
+		return res.send(data)
 	})
 	/**
 	 * Private data: return restricted to logged users data
