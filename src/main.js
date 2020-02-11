@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from '@/App.vue'
-import createRouter from '@/router/'
-import createStore from '@/store/'
+import createRouter from './routes'
+import createStore from './store'
 import VueMeta from 'vue-meta'
 import '@/registerServiceWorker'
 Vue.config.productionTip = false
