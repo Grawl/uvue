@@ -30,6 +30,12 @@ Server is configured to provide demo authorization and some endpoints with mock 
 yarn dev
 ```
 
+Probably you want to start local mock server used in examples:
+
+```
+yarn mock
+```
+
 ### Generate static website
 
 ```
